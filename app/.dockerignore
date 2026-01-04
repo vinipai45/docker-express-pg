@@ -1,0 +1,17 @@
+# Node
+node_modules
+npm-debug.log
+
+# Env / secrets
+.env
+
+# Git
+.git
+.gitignore
+
+# Docker files
+Dockerfile
+docker-compose.yml
+
+# OS junk
+.DS_Store

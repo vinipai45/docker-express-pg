@@ -1,0 +1,17 @@
+{
+	"name": "express-pg",
+	"version": "1.0.0",
+	"main": "index.js",
+	"scripts": {
+		"dev": "docker compose -f docker-compose.base.yml -f docker-compose.dev.yml up",
+		"dev:down": "docker compose -f docker-compose.base.yml -f docker-compose.dev.yml down",
+		"prod": "docker compose -f docker-compose.base.yml -f docker-compose.prod.yml up -d --build",
+		"prod:down": "docker compose -f docker-compose.base.yml -f docker-compose.prod.yml down",
+		"logs": "docker compose logs -f",
+		"ps": "docker compose ps"
+	},
+	"dependencies": {
+		"express": "^4.19.2",
+		"pg": "^8.11.5"
+	}
+}
