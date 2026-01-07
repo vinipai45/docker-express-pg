@@ -4,7 +4,7 @@ services:
     working_dir: /app
     volumes:
       - ./app:/app
-    command: sh -c "npm install && npm start"
+    command: sh -c "npm start"
     ports:
       - "3000:3000"
     env_file:
@@ -15,8 +15,13 @@ services:
 
   pgadmin:
     image: dpage/pgadmin4
+    volumes:
+      - pgadmin:/var/lib/pgadmin
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD}
     ports:
       - "5050:80"
+
+volumes:
+  pgadmin:

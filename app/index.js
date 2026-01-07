@@ -15,7 +15,7 @@ const pool = new Pool({
 
 app.get("/", async (req, res) => {
 	const result = await pool.query("SELECT NOW()");
-	res.json({ time: result.rows[0] });
+	res.json({ time: result.rows[0], health: "healthy OK" });
 });
 
 app.get("/users", async (req, res) => {
