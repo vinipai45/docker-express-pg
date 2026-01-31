@@ -10,6 +10,12 @@
 		"prod:down": "cd .. && docker compose -f docker-compose.base.yml -f docker-compose.prod.yml down",
 		"logs:dev": "cd .. && docker compose -f docker-compose.base.yml -f docker-compose.dev.yml logs -f",
 		"logs:prod": "cd .. && docker compose -f docker-compose.base.yml -f docker-compose.prod.yml logs -f",
+		"logs:dev:app": "cd .. && docker compose -f docker-compose.base.yml -f docker-compose.dev.yml logs -f app",
+		"logs:dev:db": "cd .. && docker compose -f docker-compose.base.yml -f docker-compose.dev.yml logs -f postgres",
+		"logs:dev:pgadmin": "cd .. && docker compose -f docker-compose.base.yml -f docker-compose.dev.yml logs -f pgadmin",
+		"logs:prod:app": "cd .. && docker compose -f docker-compose.base.yml -f docker-compose.prod.yml logs -f app",
+		"logs:prod:db": "cd .. && docker compose -f docker-compose.base.yml -f docker-compose.prod.yml logs -f postgres",
+		"logs:prod:nginx": "cd .. && docker compose -f docker-compose.base.yml -f docker-compose.prod.yml logs -f nginx",
 		"ps": "docker compose ps",
 		"build": "tsc -p tsconfig.json",
 		"start": "node dist/index.js"
