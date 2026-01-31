@@ -1,22 +1,28 @@
 {
 	"name": "express-pg",
 	"version": "1.0.0",
-	"main": "index.js",
+	"main": "dist/index.js",
 	"scripts": {
-		"dev": "cd .. && docker compose -f docker-compose.base.yml -f docker-compose.dev.yml up -d --build",
+		"dev": "nodemon",
+		"dev:up": "cd .. && docker compose -f docker-compose.base.yml -f docker-compose.dev.yml up -d --build",
 		"dev:down": "cd .. && docker compose -f docker-compose.base.yml -f docker-compose.dev.yml down",
-		"prod": "cd .. && docker compose -f docker-compose.base.yml -f docker-compose.prod.yml up -d --build",
+		"prod:up": "cd .. && docker compose -f docker-compose.base.yml -f docker-compose.prod.yml up -d --build",
 		"prod:down": "cd .. && docker compose -f docker-compose.base.yml -f docker-compose.prod.yml down",
 		"logs:dev": "cd .. && docker compose -f docker-compose.base.yml -f docker-compose.dev.yml logs -f",
 		"logs:prod": "cd .. && docker compose -f docker-compose.base.yml -f docker-compose.prod.yml logs -f",
 		"ps": "docker compose ps",
-		"start": "nodemon index.js"
+		"build": "tsc -p tsconfig.json",
+		"start": "node dist/index.js"
 	},
 	"dependencies": {
 		"express": "^4.19.2",
 		"pg": "^8.11.5"
 	},
 	"devDependencies": {
-		"nodemon": "^3.1.11"
+		"@types/express": "^5.0.6",
+		"@types/pg": "^8.16.0",
+		"nodemon": "^3.1.11",
+		"tsx": "^4.21.0",
+		"typescript": "^5.9.3"
 	}
 }
