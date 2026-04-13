@@ -6,6 +6,9 @@ import { requestLogger } from "./middleware/requestLogger";
 const { Pool } = pkg;
 const app = express();
 app.use(express.json());
+app.use(requestLogger);
+
+const router = express.Router();
 
 logger.info("APP_START", {
 	env: process.env.NODE_ENV,
@@ -21,17 +24,17 @@ const pool = new Pool({
 	port: 5432,
 });
 
-app.use(requestLogger);
-
-app.get("/", async (req, res) => {
+router.get("/", async (req, res) => {
 	const result = await pool.query("SELECT NOW()");
 	res.json({ time: result.rows[0], health: "healthy OK!!" });
 });
 
-app.get("/users", async (req, res) => {
+router.get("/users", async (req, res) => {
 	const result = await pool.query("SELECT * FROM users");
 	res.json({ users: result.rows });
 });
+
+app.use("/api", router);
 
 app.listen(3000, () => {
 	console.log("Express running on port 3000");

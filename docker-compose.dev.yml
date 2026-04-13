@@ -13,6 +13,17 @@ services:
       postgres:
         condition: service_healthy
 
+  client:
+    image: node:20-alpine
+    working_dir: /client
+    volumes:
+      - ./client:/client
+    command: sh -c "npm run dev"
+    ports:
+      - "5173:5173"
+    env_file:
+      - .env
+
   pgadmin:
     image: dpage/pgadmin4
     volumes:

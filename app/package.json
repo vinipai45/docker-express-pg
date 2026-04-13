@@ -11,6 +11,7 @@
 		"logs:dev": "cd .. && docker compose -f docker-compose.base.yml -f docker-compose.dev.yml logs -f",
 		"logs:prod": "cd .. && docker compose -f docker-compose.base.yml -f docker-compose.prod.yml logs -f",
 		"logs:dev:app": "cd .. && docker compose -f docker-compose.base.yml -f docker-compose.dev.yml logs -f app",
+		"logs:dev:client": "cd .. && docker compose -f docker-compose.base.yml -f docker-compose.dev.yml logs -f client",
 		"logs:dev:db": "cd .. && docker compose -f docker-compose.base.yml -f docker-compose.dev.yml logs -f postgres",
 		"logs:dev:pgadmin": "cd .. && docker compose -f docker-compose.base.yml -f docker-compose.dev.yml logs -f pgadmin",
 		"logs:prod:app": "cd .. && docker compose -f docker-compose.base.yml -f docker-compose.prod.yml logs -f app",
